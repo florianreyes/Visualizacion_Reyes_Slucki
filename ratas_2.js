@@ -35,13 +35,27 @@
 // });
 
 d3.dsv(";", "desratizacion.csv", d3.autoType).then((data) => {
-  console.log(data);
+  let dataNew = d3.filter(
+    data,
+    (d) =>
+      (d["domicilio_barrio"] == "Palermo" ||
+        d["domicilio_barrio"] == "Recoleta" ||
+        d["domicilio_barrio"] == "Belgrano" ||
+        d["domicilio_barrio"] == "Caballito" ||
+        d["domicilio_barrio"] == "Flores" ||
+        d["domicilio_barrio"] == "Almagro" ||
+        d["domicilio_barrio"] == "Nuñez" ||
+        d["domicilio_barrio"] == "Barracas" ||
+        d["domicilio_barrio"] == "Puerto Madero") &&
+      (d["categoria"] == "TRÁNSITO" ||
+        d["categoria"] == "LIMPIEZA Y RECOLECCIÓN")
+  );
   // load the GeoJSON data
   let chart = Plot.plot({
     height: 600,
     grid: true,
     facet: {
-      data: penguins,
+      data: dataNew,
       x: "sex",
       y: "species",
       marginRight: 80,
@@ -62,5 +76,5 @@ d3.dsv(";", "desratizacion.csv", d3.autoType).then((data) => {
     ],
   });
   // Agregamos chart al div#chart de index.html
-  d3.select("#chart").append(() => chart);
+  d3.select("#chart-1").append(() => chart);
 });

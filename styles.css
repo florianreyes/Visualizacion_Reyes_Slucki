@@ -3,21 +3,27 @@
     src: url('fonts/Satoshi-Regular.otf');
     
   }
-
+@font-face {
+    font-family: 'Merri';
+    src: url('fonts/Merriweather-Regular.ttf');
+    
+  }
 
 h1{
-  font-family: 'Supreme';
+  font-family: 'Merri';
   font-size: 50px;
-  color: #101010;
+  color: #f1f1f1;
   text-align: left;
-  margin-bottom: 15px;
+  margin-bottom: -20px;
+  margin-top: 20px;
   padding: 0;
+  width: 50%;
 }
 
 h3{
     font-family: 'Supreme';
     font-size: 40px;
-    color: #141414;
+    color: rgb(9, 9, 9);
     text-align: left;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -51,38 +57,45 @@ body{
   justify-content: center;
   border-radius: 5px;
   padding: 15px;
-  width:60%;
+  max-width: 60%;
 }
 
 p{
   font-family: 'Supreme';
   font-size: 20px;
-  color: #b8b8b8;
+  color: #7b7b7b;
   text-align: left;
   margin-top: 20px;
   padding: 0;
-  height: 100%;
-  width: 100%;
 }
+.pie-imagen{
+  font-size: 15px;
+  margin-right: 47%;
+}
+.descripcion-imagen{
+  font-size: 25px;
+  max-width: 60%;
+}
+
 
 .navbar{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: #111111;
+  background-color: #151515;
   width: 100%;
   height: 50px;
-  padding: 15px;
+  padding: 20px;
   margin: 0;
   position: fixed;
   top: 0;
   left: 0;
-  /* z-index: 1; */
+  z-index: 1;
 }
 .navbar-title{
-  font-family: 'Supreme';
-  font-size: 30px;
+  font-family: 'Merri';
+  font-size: 22px;
   color: #e8e8e8;
   text-align: center;
   padding: 0;
@@ -96,9 +109,42 @@ nav a:hover{
     color: #e8e8e8;
     text-decoration: none;
 }
-a img {
+.github {
     width: 40px;
     height: 40px;
     /* margin: 10px; */
     border-radius: 50%;
+}
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-image: url('./bsas2.png'); */
+  background-color: #0b0b0b;
+  background-size: cover;
+  background-position: left;
+  width: 100%;
+  height: 30%;
+  /* adjust height as needed */
+  padding: 50px;
+  margin-top: 50px;
+  margin-right: 0;
+}
+
+img{
+  width: 60%;
+  height: 550px;
+  border-radius: 5px;  
+}
+.img-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 550;
+  padding: 0;
+  margin-top: 30px;
+  margin-bottom: 70px;
 }
