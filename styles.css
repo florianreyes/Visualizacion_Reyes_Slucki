@@ -1,23 +1,23 @@
 @font-face {
     font-family: 'Supreme';
-    src: url('fonts/Nippo-Regular.otf');
+    src: url('fonts/Satoshi-Regular.otf');
     
   }
 
 
 h1{
-    font-family: 'Supreme';
-    font-size: 50px;
-    color: #e8e8e8;
-    text-align: center;
-    margin-bottom: 15px;
-    padding: 0;
+  font-family: 'Supreme';
+  font-size: 50px;
+  color: #101010;
+  text-align: left;
+  margin-bottom: 15px;
+  padding: 0;
 }
 
 h3{
     font-family: 'Supreme';
     font-size: 40px;
-    color: #e8e8e8;
+    color: #141414;
     text-align: left;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -36,20 +36,22 @@ body{
 .chart-container{
   padding : 20px;
   border-radius: 5px;
+  border: 1px solid #1e1d1d;
   width: auto;
   height: auto;
 }
 .post-container{
-  background-color: #000000;
+  background-color: #e8e8e8;
   display:flex;
-  border: 1px solid #1e1d1d;
+  /* border: 1px solid #1e1d1d; */
   margin: 50px;
   flex-direction: column;
-  align-items: left;
+  /* align-items: center; */
+  /* text-align: left; */
   justify-content: center;
   border-radius: 5px;
   padding: 15px;
-  width:50%;
+  width:60%;
 }
 
 p{
