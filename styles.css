@@ -12,12 +12,15 @@
 h1{
   font-family: 'Merri';
   font-size: 50px;
-  color: #f1f1f1;
+  /* color: #f1f1f1; */
+  color: #040404;
   text-align: left;
   margin-bottom: -20px;
   margin-top: 20px;
+  /* margin-top: 20px; */
   padding: 0;
   width: 50%;
+  margin-right: 140px;
 }
 
 h3{
@@ -36,6 +39,7 @@ body{
     align-items: center;
     justify-content: center;
     background-color: #e8e8e8;
+    margin-top: 80px;
 
 }
 
@@ -92,6 +96,7 @@ p{
   top: 0;
   left: 0;
   z-index: 1;
+  margin-bottom: 40px;
 }
 .navbar-title{
   font-family: 'Merri';
@@ -147,4 +152,11 @@ img{
   padding: 0;
   margin-top: 30px;
   margin-bottom: 70px;
+}
+
+hr.solid{
+  border-top: 3px solid rgb(115, 115, 115, 0.6);
+  width: 60%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

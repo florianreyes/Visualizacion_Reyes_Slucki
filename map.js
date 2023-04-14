@@ -1,34 +1,58 @@
 const mapaFetch = d3.json("geo-json-bsas.json");
-const dataFetch = d3.dsv(";", "./datasets/147_enero.csv", d3.autoType);
+const dataFetch = d3.dsv(
+  ";",
+  "./datasets/delitos_2021_cantidad.csv",
+  d3.autoType
+);
 
-Promise.all([mapaFetch, dataFetch]).then(([mapaFetch, dataFetch]) => {
-  const reclamosPorBarrio = d3.group(dataFetch, (d) => d.domicilio_barrio);
-  console.log(reclamosPorBarrio);
-  // load the GeoJSON data
-  let chart = Plot.plot({
+Promise.all([mapaFetch, dataFetch]).then(([mapa, data]) => {
+  mapa.features.forEach((feature) => {
+    const nombreBarrio = feature.properties.BARRIO;
+    // find matching 'BARRIO' in data and add its 'CANTIDAD' property to the feature
+    const barrioData = data.find((d) => d.BARRIO === nombreBarrio);
+    if (barrioData) {
+      feature.properties.CANTIDAD = barrioData.CANTIDAD;
+    } else {
+      // handle cases where a matching 'BARRIO' is not found in data
+      feature.properties.CANTIDAD = 0;
+      console.warn(`No matching data for ${nombreBarrio}.`);
+    }
+  });
+  let chartMap = Plot.plot({
     projection: {
       type: "mercator",
-      domain: mapaFetch,
+      domain: mapa, // Objeto GeoJson a encuadrar
     },
     color: {
-      type: "quantile",
+      // Quantize continuo (cant. denuncias) -> discreto (cant. colores)
+      type: "quantize",
       n: 10,
-      scheme: "ylorbr",
+      scheme: "ylorrd",
+      label: "Cantidad de robos y homicidios",
+      // legend: true,
     },
     marks: [
-      Plot.geo(mapaFetch, {
+      Plot.geo(mapa, {
         fill: (d) => {
           let nombreBarrio = d.properties.BARRIO;
-          let cantReclamos = nombreBarrio
-            ? reclamosPorBarrio.get(nombreBarrio).length
-            : 0;
+          let cantReclamos = d.properties.CANTIDAD;
           return cantReclamos;
         },
         stroke: "black",
+        // title: d => ${d.properties.BARRIO}\n${d.properties.DENUNCIAS}
       }),
+      Plot.text(
+        mapa.features,
+        Plot.centroid({
+          text: (d) => d.properties.BARRIO,
+          fill: "currentColor",
+          stroke: "white",
+          textAnchor: "center",
+          dx: 4,
+          filter: (d) => d.properties.CANTIDAD > 3000,
+        })
+      ),
     ],
   });
-
-  // Agregamos chart al div#chart de index.html
-  d3.select("#chart-2").append(() => chart);
+  d3.select("#chart-2").append(() => chartMap);
 });

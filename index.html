@@ -27,17 +27,21 @@
             <img class = "github" src="./assets/github.png" alt="GitHub Logo" />
         </a>
     </nav>
-    <div class="hero">
+    <!-- <div class="hero">
         <h1>Las estadísticas hablan.</h1>
         <h1>Los mejores barrios -</h1>
         <h1>de la ciudad.</h1>
         <!-- <p>En esta página se muestran visualizaciones de datos sobre la ciudad de Nueva York.</p> -->
-    </div>
+    </div> 
+    <h1>Las estadísticas hablan.</h1>
+    <h1>Los mejores barrios -</h1>
+    <h1>de la ciudad.</h1>
     <div class="img-container">
         <img src="./assets/bsas4.png" alt="">
         <p class = "pie-imagen">Imagen generada por DALL-E </p> 
         <p class = "descripcion-imagen">En base a datos de la línea 147, se creo un puntaje el cual clasifica barrios, también se muestra densidad de llamados por ratas y {completar} </p>
     </div>
+    <hr class="solid">
     <div class="post-container">
         <h3>Las calles menos molestas.</h3>
         <div class="chart-container">
@@ -62,11 +66,20 @@
         </div>
         <p>En esta visualización se muestra la cantidad de ratas que se han encontrado en la ciudad de Nueva York en el año 2020.</p>
     </div>
+    <div class="post-container">
+        <h3>Ratas, ratas y mas ratas...</h3>
+        <div class="chart-container">
+            <div id="chart-4">
+            </div>
+        </div>
+        <p>En esta visualización se muestra la cantidad de ratas que se han encontrado en la ciudad de Nueva York en el año 2020.</p>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.js"></script>
     <script src="llamados_3.js"></script>
     <script src="map.js"></script>
+    <script src="map_normalized.js"></script>
     <script src="ratas_2.js"></script>
 </body>
 
