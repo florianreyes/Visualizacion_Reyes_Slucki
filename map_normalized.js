@@ -50,10 +50,18 @@ Promise.all([mapaFetch_normalized, dataFetch_normalized]).then(
             stroke: "white",
             textAnchor: "center",
             dx: 4,
-            filter: (d) => d.properties.PUNTAJE > 30,
+            filter: (d) => d.properties.PUNTAJE > 34,
           })
         ),
       ],
+      height: 600,
+      width: 800,
+      style: {
+        "background-color": "#e8e8e8",
+        "font-size": "14px",
+        "font-family": "Supreme",
+        color: "black",
+      },
     });
     d3.select("#chart-3").append(() => chartMap);
   }

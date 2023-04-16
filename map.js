@@ -49,10 +49,22 @@ Promise.all([mapaFetch, dataFetch]).then(([mapa, data]) => {
           stroke: "white",
           textAnchor: "center",
           dx: 4,
-          filter: (d) => d.properties.CANTIDAD > 3000,
+          filter: (d) => d.properties.CANTIDAD > 3600,
         })
       ),
     ],
+    height: 600,
+    width: 800,
+    // marginLeft: 140,
+    // marginBottom: 50,
+    // marginTop: 30,
+    // marginRight: 10,
+    style: {
+      "background-color": "#e8e8e8",
+      "font-size": "14px",
+      "font-family": "Supreme",
+      color: "black",
+    },
   });
   d3.select("#chart-2").append(() => chartMap);
 });
