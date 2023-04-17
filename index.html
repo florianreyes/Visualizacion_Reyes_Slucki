@@ -28,25 +28,35 @@
         </a>
     </nav>
    <div class="hero">
-        <h4>Real Estate/ Análisis/ Estadísticas</h4>
+        <h4 class = "categorias">Bienes Raíces/ Análisis/ Estadísticas</h4>
         <hr class="solid-2">
         <h4>SELECCIÓN ESTADÍSTICA</h4>
-        <h1>Las estadísticas hablan.</h1>
-        <h1>Los mejores barrios de la ciudad. </h1>
+        <h1>En busca del mejor barrio.</h1>
+        <p class="subtitulo">Analizamos, a partir de datos de la línea 147, cuáles son los mejores barrios para vivir en la Ciudad de
+        Buenos Aires a través sus características.</p>
+        <!-- <h1>Los mejores barrios de la ciudad. </h1> -->
     </div> 
     <div class="img-container">
         <img src="./assets/bsas4.png" alt="">
         <p class = "pie-imagen">Imagen generada por DALL-E </p> 
-        <p class = "descripcion-imagen">En base a datos de la línea 147, se creo un puntaje el cual clasifica barrios, este puntaje viene dado por <b>cantidad de llamados por quejas de tránsito, obstrucción de calles, entre otros</b>. Además, se muestran mapas con densidad de crímenes, de los cuales se pueden sacar interesantes conclusiones.</p>
+        <!-- <p class = "descripcion-imagen">En base a datos de la línea 147, se creo un puntaje el cual clasifica barrios, este puntaje viene dado por <b>cantidad de llamados por quejas de tránsito, obstrucción de calles, entre otros</b>. Además, se muestran mapas con densidad de crímenes, de los cuales se pueden sacar interesantes conclusiones.</p> -->
     </div>
     <hr class="solid">
+    <p class="parrafo-noticia" style = "max-width: 60%;">En una <a
+            href="https://www.lanacion.com.ar/propiedades/radiografia-por-barrio-los-mas-buscados-los-que-tienen-mejor-precio-y-los-que-mas-prometen-nid18052022/"
+            target="_blank">nota</a> publicada hace poco menos de un año en el diario La Nación, se mencionan ciertos
+        barrios como los más buscados y los mejores para vivir. Pero, ¿los datos apoyan lo propuesto por la nota? ¿Cuál de
+        estos barrios se destaca más por sobre otros?<br><br>Para responder estas preguntas, tomamos como base de datos los
+        reclamos que se produjeron en tres distintos meses del 2021 a la línea del 147. Tomando únicamente aquellos reclamos
+        negativos y normalizando por la cantidad de población en cada uno de los barrios, obtuvimos un índice que permite
+        realizar una comparación entre los mismos.</p>
     <div class="post-container">
         <h3>Las calles menos molestas.</h3>
         <div class="chart-container">
             <div id="chart-1">
             </div>
         </div>
-        <p>En base a la <b>cantidad de llamados por quejas de tránsito y obstruccion de las calles</b>, se rankearon los barrios con las calles, <b>menos ajetreadas</b>. Se tuvo en cuenta la poblacion de los distintos barrios para nivelar el puntaje.</p>
+        <p class="parrafo-noticia">En base a la <b>cantidad de llamados por quejas de tránsito y obstruccion de las calles</b>, se rankearon los barrios con las calles, <b>menos ajetreadas</b>. Se tuvo en cuenta la poblacion de los distintos barrios para nivelar el puntaje.</p>
     </div>
     <div class="post-container">
         <h3>Es Palermo el barrio mas inseguro?</h3>
@@ -54,7 +64,7 @@
             <div id="chart-2">
             </div>
         </div>
-        <p>A simple vista, teniendo en cuenta la cantidad de robos (armados y no armados) y homicidios, Palermo parecería ser el mas
+        <p class="parrafo-noticia">A simple vista, teniendo en cuenta la cantidad de robos (armados y no armados) y homicidios, Palermo parecería ser el mas
         inseguro, no obstante, es importante tener en cuenta la densidad poblacional de cada uno de los barrios tenidos en
         cuenta en este análisis. Es por eso que fue necesario ponderar los crñimenes por la poblacion de cada barrio para
         obtener ekl verdadero número de crímenes cada 1000 personas, este verdadero mapa se muestra abajo.</p>
@@ -65,7 +75,7 @@
             <div id="chart-3">
             </div>
         </div>
-        <p>En este nuevo mapa ponderado, podemos ver que zonas como San Nicolás, Nueva Pompeya y Constitución son mas densos en términos de criminalidad.</p>
+        <p class="parrafo-noticia">En este nuevo mapa ponderado, podemos ver que zonas como San Nicolás, Nueva Pompeya y Constitución son mas densos en términos de criminalidad.</p>
     </div>
     <div class="post-container">
         <h3>Ratas, ratas y mas ratas...</h3>
@@ -73,7 +83,7 @@
             <div id="chart-4">
             </div>
         </div>
-        <p>En esta visualización se muestra la cantidad de ratas que se han encontrado en la ciudad de Nueva York en el año 2020.</p>
+        <p class="parrafo-noticia">En esta visualización se muestra la cantidad de ratas que se han encontrado en la ciudad de Nueva York en el año 2020.</p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>

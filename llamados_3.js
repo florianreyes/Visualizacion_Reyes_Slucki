@@ -22,7 +22,7 @@ d3.dsv(";", "./datasets/147_merge_denuncias.csv", d3.autoType).then((data) => {
       color: "black",
     },
     y: { label: "Barrios ->" },
-    x: { label: "Llamados ->", line: true },
+    x: { label: "Llamados cada 100 personas ->", line: true },
   });
   // Agregamos chart al div#chart de index.html
   d3.select("#chart-1").append(() => chart);
