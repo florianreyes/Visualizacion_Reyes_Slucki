@@ -1,80 +1,68 @@
-// // d3.dsv(";", "desratizacion.csv", d3.autoType).then((data) => {
-// //   console.log(data);
-// //   // load the GeoJSON data
-// //   let chart = Plot.plot({
-// //     marks: [
-// //       Plot.barX(
-// //         data,
-// //         Plot.groupY(
-// //           { x: "count" },
-// //           {
-// //             x: "y",
-// //             y: "domicilio_barrio",
-// //             fill: "domicilio_comuna",
-// //             fillOpacity: 0.8,
-// //             sort: { y: "x", reverse: true, limit: 10 },
-// //           }
-// //         )
-// //       ),
-// //     ],
-// //     style: {
-// //       "font-size": "14px",
-// //       "font-family": "Supreme",
-// //       color: "white",
-// //       "background-color": "black",
-// //     },
-// //     color: { scheme: "blues" },
-// //     x: { label: "Frecuencia de llamados", line: true },
-// //     y: { label: "Barrios", line: true },
-// //     marginLeft: 150,
-// //     marginRight: 10,
-// //     marginBottom: 50,
-// //   });
-// //   // Agregamos chart al div#chart de index.html
-// //   d3.select("#chart").append(() => chart);
-// // });
+const mapaFetch_normalized = d3.json("geo-json-bsas.json");
+const dataFetch_normalized = d3.dsv(
+  ";",
+  "./datasets/delitos_2021_cantidad.csv",
+  d3.autoType
+);
 
-// d3.dsv(";", "desratizacion.csv", d3.autoType).then((data) => {
-//   let dataNew = d3.filter(
-//     data,
-//     (d) =>
-//       (d["domicilio_barrio"] == "Palermo" ||
-//         d["domicilio_barrio"] == "Recoleta" ||
-//         d["domicilio_barrio"] == "Belgrano" ||
-//         d["domicilio_barrio"] == "Caballito" ||
-//         d["domicilio_barrio"] == "Flores" ||
-//         d["domicilio_barrio"] == "Almagro" ||
-//         d["domicilio_barrio"] == "Nuñez" ||
-//         d["domicilio_barrio"] == "Barracas" ||
-//         d["domicilio_barrio"] == "Puerto Madero") &&
-//       (d["categoria"] == "TRÁNSITO" ||
-//         d["categoria"] == "LIMPIEZA Y RECOLECCIÓN")
-//   );
-//   // load the GeoJSON data
-//   let chart = Plot.plot({
-//     height: 600,
-//     grid: true,
-//     facet: {
-//       data: dataNew,
-//       x: "sex",
-//       y: "species",
-//       marginRight: 80,
-//     },
-//     marks: [
-//       Plot.frame(),
-//       Plot.dot(penguins, {
-//         x: "culmen_depth_mm",
-//         y: "culmen_length_mm",
-//         r: 1.5,
-//         fill: "#ccc",
-//         facet: "exclude",
-//       }),
-//       Plot.dot(penguins, {
-//         x: "culmen_depth_mm",
-//         y: "culmen_length_mm",
-//       }),
-//     ],
-//   });
-//   // Agregamos chart al div#chart de index.html
-//   d3.select("#chart-3").append(() => chart);
-// });
+Promise.all([mapaFetch_normalized, dataFetch_normalized]).then(
+  ([mapa, data]) => {
+    mapa.features.forEach((feature) => {
+      const nombreBarrio = feature.properties.BARRIO;
+      // find matching 'BARRIO' in data and add its 'CANTIDAD' property to the feature
+      const barrioData = data.find((d) => d.BARRIO === nombreBarrio);
+      if (barrioData) {
+        feature.properties.PUNTAJE = barrioData.PUNTAJE;
+      } else {
+        // handle cases where a matching 'BARRIO' is not found in data
+        feature.properties.PUNTAJE = 0;
+        console.warn(`No matching data for ${nombreBarrio}.`);
+      }
+    });
+    let chartMap = Plot.plot({
+      projection: {
+        type: "mercator",
+        domain: mapa, // Objeto GeoJson a encuadrar
+      },
+      color: {
+        // Quantize continuo (cant. denuncias) -> discreto (cant. colores)
+        type: "quantize",
+        n: 10,
+        scheme: "ylorrd",
+        label: "Cantidad de robos y homicidios cada 1000 personas.",
+        // legend: true,
+      },
+      marks: [
+        Plot.geo(mapa, {
+          fill: (d) => {
+            let nombreBarrio = d.properties.BARRIO;
+            let cantReclamos = d.properties.PUNTAJE;
+            return cantReclamos;
+          },
+          stroke: "black",
+          // title: d => ${d.properties.BARRIO}\n${d.properties.DENUNCIAS}
+        }),
+        Plot.text(
+          mapa.features,
+          Plot.centroid({
+            text: (d) => d.properties.BARRIO,
+            fill: "currentColor",
+            stroke: "white",
+            textAnchor: "center",
+            dx: 4,
+            filter: (d) => d.properties.PUNTAJE > 34,
+          })
+        ),
+      ],
+      height: 600,
+      width: 800,
+      style: {
+        "background-color": "#e8e8e8",
+        "font-size": "14px",
+        "font-family": "Supreme",
+        color: "black",
+      },
+    });
+    d3.select("#chart-4").append(() => chartMap);
+  }
+);
