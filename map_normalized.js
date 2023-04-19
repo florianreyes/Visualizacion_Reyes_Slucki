@@ -30,7 +30,7 @@ Promise.all([mapaFetch_normalized, dataFetch_normalized]).then(
         n: 10,
         scheme: "ylorrd",
         label: "Cantidad de robos y homicidios cada 1000 personas.",
-        // legend: true,
+        legend: true,
       },
       marks: [
         Plot.geo(mapa, {
@@ -50,7 +50,7 @@ Promise.all([mapaFetch_normalized, dataFetch_normalized]).then(
             stroke: "white",
             textAnchor: "center",
             dx: 4,
-            filter: (d) => d.properties.PUNTAJE > 34,
+            filter: (d) => d.properties.PUNTAJE > 45,
           })
         ),
       ],

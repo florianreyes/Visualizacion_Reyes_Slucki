@@ -42,7 +42,7 @@
         <!-- <p class = "descripcion-imagen">En base a datos de la línea 147, se creo un puntaje el cual clasifica barrios, este puntaje viene dado por <b>cantidad de llamados por quejas de tránsito, obstrucción de calles, entre otros</b>. Además, se muestran mapas con densidad de crímenes, de los cuales se pueden sacar interesantes conclusiones.</p> -->
     </div>
     <hr class="solid">
-    <p class="parrafo-noticia" style = "max-width: 60%;">En una <a
+    <p class="parrafo-introduccion">En una <a
             href="https://www.lanacion.com.ar/propiedades/radiografia-por-barrio-los-mas-buscados-los-que-tienen-mejor-precio-y-los-que-mas-prometen-nid18052022/"
             target="_blank">nota</a> publicada hace poco menos de un año en el diario La Nación, se mencionan ciertos
         barrios como los más buscados y los mejores para vivir. Pero, ¿los datos apoyan lo propuesto por la nota? ¿Cuál de
@@ -51,36 +51,48 @@
         negativos y normalizando por la cantidad de población en cada uno de los barrios, obtuvimos un índice que permite
         realizar una comparación entre los mismos.</p>
     <div class="post-container">
-        <h3>Las calles menos molestas.</h3>
+        <h3>Las calles más molestas.</h3>
+        <p class="bajada">Cantidad de denuncias de inseguridad por barrio</p>
         <div class="chart-container">
             <div id="chart-1">
             </div>
         </div>
+        <p class="fuente">Fuente: Buenos Aires Data</p>
         <p class="parrafo-noticia">En base a la <b>cantidad de llamados por quejas de tránsito y obstruccion de las calles</b>, se rankearon los barrios con las calles, <b>menos ajetreadas</b>. Se tuvo en cuenta la poblacion de los distintos barrios para nivelar el puntaje. <br><br>Por más de este índice en base a los reclamos a la línea 147, dimos cuenta que los datos reflejan poco uno de los puntos más importantes a la hora de elegir un barrio para vivir: la <b> seguridad</b>.<br>Para incluir este punto en nuestro índice, comenzamos por analizar los datos provistos por <a href="https://data.buenosaires.gob.ar/dataset/delitos" target="_blank">Buenos Aires Data</a> acerca de los delitos ocurridos en la Ciudad en 2021.</p>
     </div>
     <div class="post-container">
-        <h3>¿Cuál es el barrio más seguro?</h3>
+        <h3>Palermo, el barrio con mas crímenes.</h3>
+        <p class = "bajada">Cantidad de denuncias de inseguridad por barrio</p>
         <div class="chart-container">
             <div id="chart-2">
             </div>
         </div>
+        <p class="fuente">Fuente: Buenos Aires Data</p>
         <p class="parrafo-noticia">A simple vista, teniendo en cuenta la cantidad de robos (armados y no armados) y homicidios, Palermo parecería ser el más
         inseguro. No obstante, es importante tener en cuenta la densidad poblacional de cada uno de los barrios de la Ciudad. Es por eso que fue ponderamos los crímenes por la poblacion de cada barrio para
         obtener valores de referencia que nos permitan comparar.</p>
     </div>
     <div class="post-container">
-        <h3>La verdadera (in)seguridad</h3>
+        <h3>La verdadera inseguridad.</h3>
+        <p class="bajada">Cantidad de denuncias ponderada por la poblacion de barrio.</p>
         <div class="chart-container">
             <div id="chart-3">
             </div>
         </div>
-        <p class="parrafo-noticia">En este nuevo mapa ponderado, podemos ver que zonas como San Nicolás, Nueva Pompeya y Constitución son mas densos en términos de criminalidad. <br><br>Pero, ¿Qué conclusiones podemos sacar de todo esto? ¿Cómo combinamos estos datos para elegir barrio para vivir? Acá es donde entra nuestro índice definitivo.<br>Decidimos combinar los índices de inseguridad y reclamos, de forma de obtener un puntaje que permita comparar entre barrios. Como entendemos que cada uno valora a su forma el trade-off entre la inseguridad y los reclamos recibidos por el 147 en el barrio, le asignamos ciertos pesos a estos dos parámetros.</p>
+        <p class="fuente">Fuente: Buenos Aires Data</p>
+        <p class="parrafo-noticia">En este nuevo mapa ponderado, podemos ver que zonas como San Nicolás, Nueva Pompeya y Constitución son mas densos en términos de criminalidad. Pero, ¿Qué conclusiones podemos sacar de todo esto? ¿Cómo combinamos estos datos para elegir barrio para vivir? Acá es donde entra nuestro índice definitivo.<br></br>Decidimos combinar los índices de inseguridad y reclamos, de forma de obtener un puntaje que permita comparar entre barrios. Como entendemos que cada uno valora a su forma el trade-off entre la inseguridad y los reclamos recibidos por el 147 en el barrio, le asignamos ciertos pesos a estos dos parámetros.</p>
     </div>
     <div class="post-container">
         <h3>Sacando conclusiones</h3>
+        <p class="bajada">Cantidad de denuncias de inseguridad por barrio</p>
         <div class="chart-container">
             <div id="chart-4">
             </div>
+        </div>
+        <p class="fuente">Fuente: Buenos Aires Data</p>
+        <div class="slider">
+            <label for="slider">+ Seguridad / + Denuncias</label>
+            <input id = "slider" type="range" min="0" max="10" step="1" value="5", onchange= changeRender()>
         </div>
         <p class="parrafo-noticia">En esta visualización se muestra la cantidad de ratas que se han encontrado en la ciudad de Nueva York en el año 2020.</p>
     </div>
@@ -90,7 +102,7 @@
     <script src="llamados_3.js"></script>
     <script src="map.js"></script>
     <script src="map_normalized.js"></script>
-    <script src="ratas_2.js"></script>
+    <script src="conclusion.js"></script>
 </body>
 
 </html>

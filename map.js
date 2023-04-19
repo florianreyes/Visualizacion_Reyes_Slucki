@@ -29,7 +29,8 @@ Promise.all([mapaFetch, dataFetch]).then(([mapa, data]) => {
       n: 10,
       scheme: "ylorrd",
       label: "Cantidad de robos y homicidios",
-      // legend: true,
+      legend: true,
+      background: "black",
     },
     marks: [
       Plot.geo(mapa, {
