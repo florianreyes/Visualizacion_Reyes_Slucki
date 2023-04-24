@@ -45,14 +45,14 @@
     <p class="parrafo-introduccion">En una <a
             href="https://www.lanacion.com.ar/propiedades/radiografia-por-barrio-los-mas-buscados-los-que-tienen-mejor-precio-y-los-que-mas-prometen-nid18052022/"
             target="_blank">nota</a> publicada hace poco menos de un año en el diario La Nación, se mencionan ciertos
-        barrios como los más buscados y los mejores para vivir. Pero, ¿los datos apoyan lo propuesto por la nota? ¿Cuál de
-        estos barrios se destaca más por sobre otros?<br><br>Para responder estas preguntas, tomamos como base de datos los
+        barrios como los más buscados y los mejores para vivir. Pero, ¿Cuál de
+        estos barrios se destaca más por sobre otros?<br><br>Para responder esta pregunta, tomamos como base de datos los
         reclamos que se produjeron en tres distintos meses del 2021 a la línea del 147. Tomando únicamente aquellos reclamos
         negativos y normalizando por la cantidad de población en cada uno de los barrios, obtuvimos un índice que permite
         realizar una comparación entre los mismos.</p>
     <div class="post-container">
         <h3>Las calles más molestas.</h3>
-        <p class="bajada">Cantidad de denuncias de inseguridad por barrio</p>
+        <p class="bajada">Cantidad de reclamos al 147 por barrio</p>
         <div class="chart-container">
             <div id="chart-1">
             </div>
@@ -84,14 +84,14 @@
     </div>
     <div class="post-container">
         <h3>Sacando conclusiones</h3>
-        <p class="bajada">Cantidad de denuncias de inseguridad por barrio</p>
+        <p class="bajada">Ranking de barrios a partir de la combinación entre seguridad y los reclamos al 147.<br>A medida que se mueve el slider a derecha, se valora más la seguridad pero implica mayor cantidad de reclamos.</p>
         <div class="chart-container">
             <div id="chart-4">
             </div>
         </div>
         <p class="fuente">Fuente: Buenos Aires Data</p>
         <div class="slider">
-            <label for="slider">+ Seguridad / + Denuncias</label>
+            <label for="slider"> <-- -Seguridad -Denuncias // +Seguridad +Denuncias --> </label>
             <input id = "slider" type="range" min="0" max="10" step="1" value="5", onmousemove= changeRender(); onchange=changeRender()>
         </div>
         <p class="parrafo-noticia">En esta visualización se muestra la cantidad de ratas que se han encontrado en la ciudad de Nueva York en el año 2020.</p>

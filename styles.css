@@ -77,9 +77,17 @@ body {
   max-width: 50%;
 }
 #slider{
-  align-self: center;
-  width:70%;
-  background:#e8e8e8;
+  /* background: linear-gradient(to right, #B9EDDD 0%, #87CBB9 50%, #569DAA 50%, #577D86 100%); */
+  background: linear-gradient(to right, #fea749 0%, #fea749 50%, #fea749 50%, #fea749 100%);
+  /* background: linear-gradient(to right, #fffac1 0%, #fea749 50%, #fc7435 50%, #bd0524 100%); */
+  border: solid 1px #fffac1;
+  accent-color: #fd7836;
+  border-radius: 8px;
+  height: 7px;
+  width: 356px;
+  outline: none;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
 }
 .slider label {
   display:flex;
