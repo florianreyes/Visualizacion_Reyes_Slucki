@@ -52,7 +52,7 @@
         realizar una comparación entre los mismos.</p>
     <div class="post-container">
         <h3>Las calles más molestas.</h3>
-        <p class="bajada">Cantidad de reclamos al 147 por barrio</p>
+        <p class="bajada">Cantidad de reclamos al 147 por barrio cada 1000 habitantes</p>
         <div class="chart-container">
             <div id="chart-1">
             </div>
@@ -84,7 +84,7 @@
     </div>
     <div class="post-container">
         <h3>Sacando conclusiones</h3>
-        <p class="bajada">Ranking de barrios a partir de la combinación entre seguridad y los reclamos al 147.<br>A medida que se mueve el slider a derecha, se valora más la seguridad pero implica mayor cantidad de reclamos.</p>
+        <p class="bajada">Ranking de barrios a partir de la combinación entre seguridad y los reclamos al 147.<br>A medida que se mueve el slider a derecha, se valora más la seguridad pero implica mayor cantidad de denuncias.</p>
         <div class="chart-container">
             <div id="chart-4">
             </div>
@@ -94,12 +94,12 @@
             <label for="slider"> <-- -Seguridad -Denuncias // +Seguridad +Denuncias --> </label>
             <input id = "slider" type="range" min="0" max="10" step="1" value="5", onmousemove= changeRender(); onchange=changeRender()>
         </div>
-        <p class="parrafo-noticia">En esta visualización se muestra la cantidad de ratas que se han encontrado en la ciudad de Nueva York en el año 2020.</p>
+        <p class="parrafo-noticia">En este último gráfico, cada uno puede ponderar a su gusto cuánta importancia le da a la seguridad y cuánta a los reclamos al 147; y sacar sus propias conclusiones. <br><br>De todas maneras, se ve una dominancia de Barracas, Recoleta y Almagro en niveles bajos de seguridad, y de Caballito y Belgrano en niveles más altos de seguridad. <br><br>De todos modos, y dejamos más a interpretanción del lector, creemos que los reclamos al 147 y los delitos en la ciudad no reflejan al 100% la calidad de vida en los barrios. Hay muchos factores que no son tenidos en cuenta en el análisis y seguramente hayan problemas en la transparencia en la recolección de datos. Por ejemplo, ¿todos denunciamos robos de celulares? ¿siempre que vemos un auto mal estacionado llamamos al 147? <br><br>Muchas preguntas por el estilo pueden hacerse y será bastante dificil responderlas todas y realmente saber cuál es el mejor barrio en cuanto a datos. Pero entendemos que el análisis llevado a cabo en esta nota reúne de la mejor manera ciertos puntos críticos en la comparación entre barrios.</p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.js"></script>
-    <script src="llamados_3.js"></script>
+    <script src="reclamos.js"></script>
     <script src="map.js"></script>
     <script src="map_normalized.js"></script>
     <script src="conclusion.js"></script>

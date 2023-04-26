@@ -21,7 +21,7 @@ function changeRender() {
             y: "barrio",
             r: 10,
             fill: "count",
-            sort: { y: "x", reverse: true },
+            sort: { y: "x", reverse: false },
             title: "barrio",
             strokeWidth: 2,
           }),
@@ -29,11 +29,11 @@ function changeRender() {
         height: 400,
         width: 800,
         marginLeft: 140,
-        marginBottom: 50,
+        marginBottom: 30,
         marginTop: 30,
         marginRight: 10,
         color: {
-          legend: true,
+          // legend: true,
           scheme: "ylorrd",
         },
         style: {
@@ -44,10 +44,11 @@ function changeRender() {
         },
         y: { label: "Barrios ->", line: true },
         x: {
-          label: "Seguridad vs Tránsito(%) ->",
+          label: "Cantidad de denuncias ->",
           line: true,
           zero: true,
           nice: true,
+          ticks: false
         },
       });
       document.getElementById("chart-4").innerHTML = "";

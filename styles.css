@@ -98,13 +98,21 @@ body {
   padding-left: 10px;
   color: black;
   margin-top: -3px;
+  margin-bottom: 7px;
 }
 label{
   font-family: 'Supreme';
-  font-size: 10px;
+  font-size: 13px;
   color: #7b7b7b;
   text-align: left;
   padding: 0;
+}
+.slider{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 p {
